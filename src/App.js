@@ -6,11 +6,13 @@ import { useContext, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignupPage";
+import CreatePost from "./pages/CreatePost";
+import SigninPage from "./pages/SigninPage";
 
 function App() {
   const { userState } = useContext(AppContext);
   const [user, setUser] = userState;
-  const userId = localStorage.getItem("userId");
+  const userId = localStorage.getItem("user_id");
 
   return (
     <div className='App'>
@@ -18,11 +20,11 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage />} />
         <>
-          {/* <Route
-            path='/create'
+          <Route
+            path='/post'
             element={userId ? <CreatePost /> : <SigninPage />}
           />
-          <Route
+          {/* <Route
             path='/allbikes'
             element={userId ? <AllBikes /> : <SigninPage />}
           />
@@ -37,7 +39,7 @@ function App() {
           <Route
             path='/onebike/:motoId'
             element={userId ? <PaymentPage /> : <SigninPage />}
-          />
+          /> */}
           {/* <> */}
           {/* <Route path='/signin' element={<SigninPage />} /> */}
           <Route path='/signup' element={<SignupPage />} />

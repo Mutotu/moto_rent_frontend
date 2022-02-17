@@ -19,7 +19,7 @@ const Header = (props) => {
         >
           Home
         </button>
-        {localStorage.userId ? (
+        {localStorage.getItem("user_id") ? (
           <>
             <button
               className='btn-header'
@@ -40,7 +40,7 @@ const Header = (props) => {
             <button
               className='btn-header'
               onClick={() => {
-                navigation("/create");
+                navigation("/post");
               }}
             >
               Post Bikes
@@ -49,7 +49,7 @@ const Header = (props) => {
               className='btn-header'
               onClick={() => {
                 setUser({});
-                localStorage.removeItem("userId");
+                localStorage.removeItem("user_id");
 
                 navigation("/");
               }}

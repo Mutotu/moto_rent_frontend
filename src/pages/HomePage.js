@@ -7,12 +7,12 @@ import { Link } from "react-router-dom";
 import AllBikes from "../Components/jsFiles/AllBikes";
 
 const HomePage = (props) => {
-  const userId = localStorage.getItem.userId;
+  const user_id = localStorage.getItem.user_id;
   const [bikes, setBikes] = useState([]);
   const get_all_bikes = async () => {
     // const allBikes = await axios.get(`${process.env.BACKEND_URL}/motos`, {
     const allBikes = await axios.get(`http://localhost:5000/motos`, {
-      headers: { authorization: localStorage.getItem("userId") },
+      // headers: { authorization: localStorage.getItem("user_id") },
     });
 
     setBikes(allBikes.data.motos);
@@ -27,7 +27,7 @@ const HomePage = (props) => {
     <div>
       <h1>HomePage</h1>
 
-      {!userId ? (
+      {!user_id ? (
         <Link to={`${`/signup`}`}>
           <AllBikes bikes={bikes} />
         </Link>
