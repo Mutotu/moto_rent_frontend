@@ -12,6 +12,8 @@ const SigninPage = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+
+    // response not adding the userId to the local stroage on time, it gets undefined
     try {
       const response = await axios.post(
         // `${env.BACKEND_URL}/signin`,
@@ -29,6 +31,25 @@ const SigninPage = (props) => {
     } catch (error) {
       setError("Enter valid info");
     }
+
+    // axios
+    //   .post(
+    //     // `${env.BACKEND_URL}/signin`,
+    //     "http://localhost:5000/login",
+    //     {
+    //       username: userName,
+    //       password: password,
+    //     }
+    //   )
+    //   .then((response) => {
+    //     console.log(response);
+    //     if (response.status === 200) {
+    //       localStorage.setItem("user_id", response.data.user_id);
+    //       navigation("/");
+    //     }
+
+    //     setError("Enter valid info");
+    //   });
   };
   const handleClick = () => {
     setError("");

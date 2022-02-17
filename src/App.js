@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignupPage";
 import CreatePost from "./pages/CreatePost";
 import SigninPage from "./pages/SigninPage";
+import RentedBikes from "./pages/RentedBikes";
 
 function App() {
   const { userState } = useContext(AppContext);
@@ -24,14 +25,15 @@ function App() {
             path='/post'
             element={userId ? <CreatePost /> : <SigninPage />}
           />
+          <Route
+            path='/myBikes'
+            element={userId ? <RentedBikes /> : <SigninPage />}
+          />
           {/* <Route
             path='/allbikes'
             element={userId ? <AllBikes /> : <SigninPage />}
           />
-          <Route
-            path='/myBikes'
-            element={userId ? <MySavedRentedBikes /> : <SigninPage />}
-          />
+          
           <Route
             path='/allbikes/:motoId'
             element={userId ? <SingleBikePage /> : <SigninPage />}
