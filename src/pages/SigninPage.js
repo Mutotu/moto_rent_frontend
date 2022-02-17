@@ -14,16 +14,16 @@ const SigninPage = (props) => {
     setError("");
     try {
       const response = await axios.post(
-        `${env.BACKEND_URL}/signin`,
-        // "http://localhost:5000/users/login",
+        // `${env.BACKEND_URL}/signin`,
+        "http://localhost:5000/login",
         {
           username: userName,
           password: password,
         }
       );
-      // console.log(error.response);
-      if (response) {
-        localStorage.setItem("user_id", response.data.user.id);
+      console.log(response);
+      if (response.status === 200) {
+        localStorage.setItem("user_id", response.data.user_id);
         navigation("/");
       }
     } catch (error) {
@@ -31,7 +31,7 @@ const SigninPage = (props) => {
     }
   };
   const handleClick = () => {
-    setError("errorRemove");
+    setError("");
   };
   return (
     <div>

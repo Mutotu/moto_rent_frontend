@@ -39,9 +39,9 @@ function App() {
           <Route
             path='/onebike/:motoId'
             element={userId ? <PaymentPage /> : <SigninPage />}
-          /> */}
+          />  */}
           {/* <> */}
-          {/* <Route path='/signin' element={<SigninPage />} /> */}
+          <Route path='/signin' element={<SigninPage />} />
           <Route path='/signup' element={<SignupPage />} />
         </>
       </Routes>
