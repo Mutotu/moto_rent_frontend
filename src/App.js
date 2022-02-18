@@ -9,6 +9,8 @@ import SignupPage from "./pages/SignupPage";
 import CreatePost from "./pages/CreatePost";
 import SigninPage from "./pages/SigninPage";
 import RentedBikes from "./pages/RentedBikes";
+import SingleBikePage from "./pages/SingleBikePage";
+import PaymentPage from "./pages/PaymentPage";
 
 function App() {
   const { userState } = useContext(AppContext);
@@ -29,19 +31,21 @@ function App() {
             path='/myBikes'
             element={userId ? <RentedBikes /> : <SigninPage />}
           />
+          <Route
+            path='/singleBike/:motoId'
+            element={userId ? <SingleBikePage /> : <SigninPage />}
+          />
+          <Route
+            path='payment/:motoId'
+            element={userId ? <PaymentPage /> : <SigninPage />}
+          />
           {/* <Route
             path='/allbikes'
             element={userId ? <AllBikes /> : <SigninPage />}
           />
           
-          <Route
-            path='/allbikes/:motoId'
-            element={userId ? <SingleBikePage /> : <SigninPage />}
-          />
-          <Route
-            path='/onebike/:motoId'
-            element={userId ? <PaymentPage /> : <SigninPage />}
-          />  */}
+          
+          
           {/* <> */}
           <Route path='/signin' element={<SigninPage />} />
           <Route path='/signup' element={<SignupPage />} />
