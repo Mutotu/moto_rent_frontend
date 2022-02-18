@@ -17,7 +17,7 @@ const HomePage = (props) => {
     });
 
     setBikes(allBikes.data.motos);
-    console.log(bikes);
+    // console.log(bikes);
   };
 
   useEffect(() => {

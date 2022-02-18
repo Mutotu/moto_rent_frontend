@@ -1,11 +1,9 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import env from "react-dotenv";
 import RentedBikes from "../Components/jsFiles/RentedBikes";
 
 const MySavedRentedBikes = (props) => {
-  const navigate = useNavigate();
   const [myrented, setMyRented] = useState([]);
 
   let userId = localStorage.getItem("userId");
@@ -17,8 +15,6 @@ const MySavedRentedBikes = (props) => {
       },
     });
     setMyRented(getRentedMotos.data.rented_motos);
-
-    // setLoad(true);
   };
   useEffect(() => {
     rentedMotos();
@@ -26,7 +22,7 @@ const MySavedRentedBikes = (props) => {
 
   return (
     <>
-      <h1>lol</h1>
+      <h1>Bikes You Rented</h1>
       <RentedBikes myrented={myrented} />
     </>
   );
