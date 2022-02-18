@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import env from "react-dotenv";
 import { useParams } from "react-router-dom";
+import UserInfo from "../Components/jsFiles/UserInfo";
 
 const SingleBikePage = (props) => {
   const navigate = useNavigate();
@@ -41,6 +42,7 @@ const SingleBikePage = (props) => {
           <h2>Photo: {moto.motorcycle?.photo}</h2>
           <h2>Make: {moto.motorcycle?.make}</h2>
         </div>
+        <UserInfo userId={moto.motorcycle?.user_id} />
         <div>
           {moto.comments?.map((item, i) => {
             return (
