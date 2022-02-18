@@ -12,11 +12,11 @@ const CommentOnBikes = (props) => {
 
   const submitEventInfo = async (e) => {
     e.preventDefault();
-    let user_id = localStorage.getItem("userId");
-    // console.log(motoId);
+
     try {
       const submitComment = await axios.post(
         // `${env.BACKEND_URL}/comment/${user_id}/${motoId}`,
+        `http://localhost:5000/comment/${props.moto_id}`,
         { title, comment },
         {
           headers: {
@@ -27,15 +27,16 @@ const CommentOnBikes = (props) => {
     } catch (error) {
       console.log(error);
     }
+    setShowForm(false);
+    setComment("");
+    setTitle("");
   };
 
   const displayFormInputs = () => {
     return (
       <div id='overlay' style={{ padding: "20px" }}>
-        {props.displayBikes()}
         <form onSubmit={submitEventInfo} className='commentForm' id='text'>
           <div>
-            {" "}
             <label htmlFor='title'>Title: </label>
             <input
               type='text'
@@ -67,6 +68,7 @@ const CommentOnBikes = (props) => {
             }}
           />
           <button
+            type='button'
             onClick={() => {
               setDisplayForm(false);
               setComment("");
@@ -80,6 +82,20 @@ const CommentOnBikes = (props) => {
       </div>
     );
   };
+
+  const commentButton = () => {
+    return (
+      <button
+        onClick={() => {
+          setShowForm(true);
+        }}
+      >
+        Comment
+      </button>
+    );
+  };
+
+  return <>{showForm ? displayFormInputs() : commentButton()}</>;
 };
 
 export default CommentOnBikes;
