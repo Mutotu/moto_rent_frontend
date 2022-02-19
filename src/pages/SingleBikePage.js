@@ -19,8 +19,9 @@ const SingleBikePage = (props) => {
     });
 
     setMoto(motoData.data);
-    console.log(motoData.data);
+    // console.log(motoData.data);
   };
+
   useEffect(() => {
     getMoto();
   }, []);
@@ -43,6 +44,7 @@ const SingleBikePage = (props) => {
           <h2>Make: {moto.motorcycle?.make}</h2>
         </div>
         <UserInfo userId={moto.motorcycle?.user_id} />
+
         <div>
           {moto.comments?.map((item, i) => {
             return (
