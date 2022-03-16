@@ -6,7 +6,7 @@ import RentedBikes from "../Components/jsFiles/RentedBikes";
 const MySavedRentedBikes = (props) => {
   const [myrented, setMyRented] = useState([]);
 
-  let userId = localStorage.getItem("userId");
+  // let userId = localStorage.getItem("userId");
 
   const rentedMotos = async () => {
     const getRentedMotos = await axios("http://localhost:5000/rent", {

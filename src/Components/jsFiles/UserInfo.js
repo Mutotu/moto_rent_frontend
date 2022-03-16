@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState } from "react";
-// import { useParams } from "react-router-dom";
 
 const UserInfo = (props) => {
   const [email, setEmail] = useState("");

@@ -39,14 +39,11 @@ function App() {
             path='payment/:motoId'
             element={userId ? <PaymentPage /> : <SigninPage />}
           />
-          {/* <Route
-            path='/allbikes'
-            element={userId ? <AllBikes /> : <SigninPage />}
+          <Route
+            path='/myPosts'
+            element={userId ? <myPosts /> : <SigninPage />}
           />
-          
-          
-          
-          {/* <> */}
+
           <Route path='/signin' element={<SigninPage />} />
           <Route path='/signup' element={<SignupPage />} />
         </>
